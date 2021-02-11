@@ -1,7 +1,7 @@
 #!/bin/bash
 #-------------------------------
 # Plugin MAnager
-# v1.0
+# v1.2
 # LICENSED UNDER MIT
 #-------------------------------
 
@@ -34,7 +34,7 @@ while [[ $# -gt 0 ]]; do
             shift
             ;;
            --version|-v)
-            echo "v1.0"
+            echo "v1.2"
             shift
             ;;
           --fetch|-f)
