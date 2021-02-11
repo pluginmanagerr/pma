@@ -1,9 +1,14 @@
 #!/bin/bash
-#-------------------------------
+# ________  _____ ______   ________     
+#|\   __  \|\   _ \  _   \|\   __  \    
+#\ \  \|\  \ \  \\\__\ \  \ \  \|\  \   
+# \ \   ____\ \  \\|__| \  \ \   __  \  
+#  \ \  \___|\ \  \    \ \  \ \  \ \  \ 
+#   \ \__\    \ \__\    \ \__\ \__\ \__\
+#    \|__|     \|__|     \|__|\|__|\|__|
 # Plugin MAnager
-# v1.2
+# v1.4
 # LICENSED UNDER MIT
-#-------------------------------
 
 QUERY=`echo $2 | sed 's/ /+/'g`
 RESULT=`curl -s https://raw.githubusercontent.com/kreat0/pma-repo/main/vizality.json | jq -r  ".bruh."$QUERY"_link"`
@@ -21,9 +26,9 @@ _print_help(){
 Usage:  pma [OPTIONS]
 Options:
     -l  --list        List of plugins
-    -h  --help        Print help
+    -h  --help        Show help
     -d  --dir         Setup directory 
-    -v  --version     Print version
+    -v  --version     Show version
     -f  --fetch       Fetch a plugin
 EOF
 }
@@ -42,7 +47,15 @@ while [[ $# -gt 0 ]]; do
             shift
             ;;
            --version|-v)
-            echo "v1.2"
+           echo '
+ ________  _____ ______   ________     
+|\   __  \|\   _ \  _   \|\   __  \    
+\ \  \|\  \ \  \\\__\ \  \ \  \|\  \   
+ \ \   ____\ \  \\|__| \  \ \   __  \  
+  \ \  \___|\ \  \    \ \  \ \  \ \  \ 
+   \ \__\    \ \__\    \ \__\ \__\ \__\
+    \|__|     \|__|     \|__|\|__|\|__|'              
+            echo "v1.4"
             shift
             ;;
           --fetch|-f)
