@@ -1,0 +1,51 @@
+#!/bin/bash
+#-------------------------------
+# Plugin MAnager
+# v1.0
+# LICENSED UNDER MIT
+#-------------------------------
+
+QUERY=`echo $2 | sed 's/ /+/'g`
+RESULT=`curl -s https://raw.githubusercontent.com/kreat0/pma-repo/main/vizality.json | jq -r  "."$QUERY"_link."$QUERY"_link"`
+
+_print_help(){
+  cat << "EOF"
+Usage:  pma [OPTIONS]
+Options:
+    -h  --help        Print help
+    -d  --dir         Setup directory 
+    -v  --version     Print version
+    -f  --fetch       Fetch a plugin
+EOF
+}
+
+POSITIONAL=()
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --dir|-d)
+         read DIR
+            shift
+            shift
+            ;;
+           --version|-v)
+            echo "v1.0"
+            shift
+            ;;
+          --fetch|-f)
+           cd $DIR
+           git clone --progress --quiet $RESULT 
+            shift
+            shift
+            ;;
+        --help|-h)
+            _print_help
+            shift
+            shift
+            ;;
+        *)
+          echo "Option not found"
+          _print_help
+          shift
+          ;;
+    esac
+done
