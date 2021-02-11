@@ -8,6 +8,14 @@
 QUERY=`echo $2 | sed 's/ /+/'g`
 RESULT=`curl -s https://raw.githubusercontent.com/kreat0/pma-repo/main/vizality.json | jq -r  ".bruh."$QUERY"_link"`
 
+if ! [ -x "$(command -v jq)" ]; then
+    echo "jq is not installed, attempting to install it"
+    sudo pacman -S jq
+    sudo apt install jq 
+    sudo zypper install jq
+    echo "If it didnt work install  jq manually"
+fi
+
 _print_help(){
   cat << "EOF"
 Usage:  pma [OPTIONS]
