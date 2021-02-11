@@ -12,6 +12,7 @@ _print_help(){
   cat << "EOF"
 Usage:  pma [OPTIONS]
 Options:
+    -l  --list        List of plugins
     -h  --help        Print help
     -d  --dir         Setup directory 
     -v  --version     Print version
@@ -24,6 +25,11 @@ while [[ $# -gt 0 ]]; do
     case $1 in
         --dir|-d)
          read DIR
+            shift
+            shift
+            ;;
+         --list|-l)
+          curl -s https://raw.githubusercontent.com/kreat0/pma-repo/main/vizality.json | jq -r  ".bruh"
             shift
             shift
             ;;
