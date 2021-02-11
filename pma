@@ -6,7 +6,7 @@
 #-------------------------------
 
 QUERY=`echo $2 | sed 's/ /+/'g`
-RESULT=`curl -s https://raw.githubusercontent.com/kreat0/pma-repo/main/vizality.json | jq -r  "."$QUERY"_link."$QUERY"_link"`
+RESULT=`curl -s https://raw.githubusercontent.com/kreat0/pma-repo/main/vizality.json | jq -r  ".bruh."$QUERY"_link"`
 
 _print_help(){
   cat << "EOF"
