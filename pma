@@ -10,6 +10,7 @@
 # v1.4
 # LICENSED UNDER MIT
 
+DIR="/the/path/of/plugins/folder"
 QUERY=`echo $2 | sed 's/ /+/'g`
 RESULT=`curl -s https://raw.githubusercontent.com/kreat0/pma-repo/main/vizality.json | jq -r  ".bruh."$QUERY"_link"`
 
@@ -27,7 +28,6 @@ Usage:  pma [OPTIONS]
 Options:
     -l  --list        List of plugins
     -h  --help        Show help
-    -d  --dir         Setup directory 
     -v  --version     Show version
     -f  --fetch       Fetch a plugin
 EOF
@@ -36,11 +36,6 @@ EOF
 POSITIONAL=()
 while [[ $# -gt 0 ]]; do
     case $1 in
-        --dir|-d)
-         read DIR
-            shift
-            shift
-            ;;
          --list|-l)
           curl -s https://raw.githubusercontent.com/kreat0/pma-repo/main/vizality.json | jq -r  ".bruh"
             shift
