@@ -12,7 +12,7 @@
 
 DIR="/the/path/of/plugins/folder"
 QUERY=`echo $2 | sed 's/ /+/'g`
-RESULT=`curl -s https://kreat0.github.io/pma-repo/vizality.json | jq -r  ".bruh."$QUERY"_link"`
+RESULT=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".bruh."$QUERY"_link"`
 
 if ! [ -x "$(command -v jq)" ]; then
     echo "jq is not installed, attempting to install it"
@@ -55,7 +55,7 @@ POSITIONAL=()
 while [[ $# -gt 0 ]]; do
     case $1 in
          --list|-l)
-          curl -s https://raw.githubusercontent.com/kreat0/pma-repo/main/vizality.json | jq -r  ".bruh"
+          curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".bruh"
             shift
             shift
             ;;
