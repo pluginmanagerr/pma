@@ -5,7 +5,8 @@
 
 # PMA
 Plugin MAnager for Vizality/Powercord
-
+# WARNING
+Plugin MAnager-GUI is not ready for use yet and might cause problems.
 # What is this?
 This is a Plugin manager (like a package manager, but for plugins) for linux systems that is compatible with Powercord and Vizality.
 
@@ -41,6 +42,10 @@ There should be a way to run this on windows under WSL, but its not supported an
 # Im getting jq/git/curl command not found errors, how can i fix them?
 You need to install jq/git/curl to use pma.
 
+# How to use pma-gui (WARNING:WIP)
+1. Clone the repo
+2. run chmod +x pma-gui
+3. run bash pma-gui or ./pma-gui (Root is not recommended)
 
 # Why are you using shell and not this [random programming language] instead?
 shell is fast and easy to learn/modify, and it makes my job easier.
