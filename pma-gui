@@ -36,7 +36,7 @@ fi
 
 
 list=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".bruh"`
-#custom repository support
+#Custom repository support, for more information https://github.com/pluginmanagerr/pma-repo
 list2=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".repository"`
 dialog=$(yad --title "Plugin MAnager-gui" --image=/home/kreato/Masaüstü/pma-tp.png  --form --field="Plugin dir" --field="Plugin name"  --field="Plugin List:CB" "" "" "$list!$list2")
 
