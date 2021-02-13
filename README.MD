@@ -1,3 +1,6 @@
+<p align="center">
+<img src="./assets/pma.png">
+</p>
 # Plugin MAnager
 PMA is a Plugin Manager for Vizality and Powercord.
 
