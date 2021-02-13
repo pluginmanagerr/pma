@@ -43,6 +43,7 @@ _print_help(){
   cat << "EOF"
 Usage:  pma [OPTIONS]
 Options:
+    -i  --install     Install powercord
     -l  --list        List of plugins
     -h  --help        Show help
     -v  --version     Show version
@@ -55,6 +56,17 @@ while [[ $# -gt 0 ]]; do
     case $1 in
          --list|-l)
           curl -s https://raw.githubusercontent.com/kreat0/pma-repo/main/vizality.json | jq -r  ".bruh"
+            shift
+            shift
+            ;;
+         --install|-i)
+      echo "You NEED to have discord canary to proceed, press enter if you do, unless the installer will fail."
+      sudo pacman -S nodejs npm
+      sudo zypper install node npm
+      git clone https://github.com/powercord-org/powercord
+      cd powercord
+      npm i
+      sudo npm run plug
             shift
             shift
             ;;
