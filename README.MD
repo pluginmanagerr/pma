@@ -36,5 +36,9 @@ There should be a way to run this on windows under WSL, but its not supported an
 # Im getting jq/git/curl command not found errors, how can i fix them?
 You need to install jq/git/curl to use pma.
 
+
+# Why are you using shell and not this [random programming language] instead?
+shell is fast and easy to learn/modify, and it makes my job easier.
+
 # License
 pma is licensed under MIT license.
