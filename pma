@@ -68,6 +68,7 @@ while [[ $# -gt 0 ]]; do
    \ \__\    \ \__\    \ \__\ \__\ \__\
     \|__|     \|__|     \|__|\|__|\|__|'              
             echo "v1.4"
+            echo "pma is open source, you can check the repos here:"
             echo "https://github.com/kreat0/pma"
             echo "https://github.com/kreat0/pma-repo"
             shift
