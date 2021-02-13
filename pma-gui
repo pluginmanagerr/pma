@@ -43,6 +43,15 @@ if ! [ -x "$(command -v yad)" ]; then
 fi
 
 
+if ! [ -x "$(command -v zenity)" ]; then
+    echo "zenity is not installed, attempting to install it"
+    sudo pacman -S zenity
+    sudo apt install zenity
+    sudo zypper install zenity
+    echo "If it didnt work install zenity manually"
+fi
+
+
 list=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".bruh"`
 #Custom repository support, for more information https://github.com/pluginmanagerr/pma-repo
 #list2=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".repository"`
