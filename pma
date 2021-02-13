@@ -7,7 +7,7 @@
 #   \ \__\    \ \__\    \ \__\ \__\ \__\
 #    \|__|     \|__|     \|__|\|__|\|__|
 # Plugin MAnager
-# v1.4
+# v1.6
 # LICENSED UNDER MIT
 
 DIR="/the/path/of/plugins/folder"
@@ -79,7 +79,7 @@ while [[ $# -gt 0 ]]; do
   \ \  \___|\ \  \    \ \  \ \  \ \  \ 
    \ \__\    \ \__\    \ \__\ \__\ \__\
     \|__|     \|__|     \|__|\|__|\|__|'              
-            echo "v1.4"
+            echo "v1.6"
             echo "pma is open source, you can check the repos here:"
             echo "https://github.com/kreat0/pma"
             echo "https://github.com/kreat0/pma-repo"
