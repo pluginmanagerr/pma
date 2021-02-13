@@ -1,0 +1,51 @@
+#!/bin/bash  
+# ________  _____ ______   ________                 ________  ___  ___  ___     
+#|\   __  \|\   _ \  _   \|\   __  \               |\   ____\|\  \|\  \|\  \    
+#\ \  \|\  \ \  \\\__\ \  \ \  \|\  \  ____________\ \  \___|\ \  \\\  \ \  \   
+# \ \   ____\ \  \\|__| \  \ \   __  \|\____________\ \  \  __\ \  \\\  \ \  \  
+#  \ \  \___|\ \  \    \ \  \ \  \ \  \|____________|\ \  \|\  \ \  \\\  \ \  \ 
+#   \ \__\    \ \__\    \ \__\ \__\ \__\              \ \_______\ \_______\ \__\
+#    \|__|     \|__|     \|__|\|__|\|__|               \|_______|\|_______|\|__|
+# Plugin MAnager-GUI
+# v0.1
+# LICENSED UNDER MIT
+
+if ! [ -x "$(command -v jq)" ]; then
+    echo "jq is not installed, attempting to install it"
+    sudo pacman -S jq
+    sudo apt install jq 
+    sudo zypper install jq
+    echo "If it didnt work install  jq manually"
+fi
+
+if ! [ -x "$(command -v curl)" ]; then
+    echo "curl is not installed, attempting to install it"
+    sudo pacman -S curl
+    sudo apt install curl 
+    sudo zypper install curl
+    echo "If it didnt work install  curl manually"
+fi
+
+if ! [ -x "$(command -v git)" ]; then
+    echo "git is not installed, attempting to install it"
+    sudo pacman -S git
+    sudo apt install git 
+    sudo zypper install git
+    echo "If it didnt work install  git manually"
+fi
+
+
+list=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".bruh"`
+#custom repository support
+list2=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".repository"`
+dialog=$(yad --title "Plugin MAnager-gui" --image=/home/kreato/Masaüstü/pma-tp.png  --form --field="Plugin dir" --field="Plugin name"  --field="Plugin List:CB" "" "" "$list!$list2")
+
+dir=$(echo $dialog | awk 'BEGIN {FS="|" } { print $1 }')
+name=$(echo $dialog | awk 'BEGIN {FS="|" } { print $2 }')
+result=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".bruh."$name"_link"`
+
+cd $dir
+git clone --progress $result
+notify-send "Plugin MAnager" "Install complete."
+
+yad --title="Finished" --width=300  --button="gtk-ok:0"  --text="Finished install."
