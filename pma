@@ -81,8 +81,8 @@ while [[ $# -gt 0 ]]; do
     \|__|     \|__|     \|__|\|__|\|__|'              
             echo "v1.6"
             echo "pma is open source, you can check the repos here:"
-            echo "https://github.com/kreat0/pma"
-            echo "https://github.com/kreat0/pma-repo"
+            echo "https://github.com/pluginmanagerr/pma"
+            echo "https://github.com/pluginmanagerr/pma-repo"
             shift
             ;;
           --fetch|-f)
