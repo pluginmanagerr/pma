@@ -7,7 +7,7 @@
 #   \ \__\    \ \__\    \ \__\ \__\ \__\              \ \_______\ \_______\ \__\
 #    \|__|     \|__|     \|__|\|__|\|__|               \|_______|\|_______|\|__|
 # Plugin MAnager-GUI
-# v0.1
+# v0.3
 # LICENSED UNDER MIT
 
 if ! [ -x "$(command -v jq)" ]; then
@@ -34,11 +34,28 @@ if ! [ -x "$(command -v git)" ]; then
     echo "If it didnt work install  git manually"
 fi
 
+if ! [ -x "$(command -v yad)" ]; then
+    echo "yad is not installed, attempting to install it"
+    sudo pacman -S yad
+    sudo apt install yad 
+    sudo zypper install yad
+    echo "If it didnt work install  yad manually"
+fi
+
 
 list=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".bruh"`
 #Custom repository support, for more information https://github.com/pluginmanagerr/pma-repo
-list2=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".repository"`
-dialog=$(yad --title "Plugin MAnager-gui" --image=/home/kreato/Masaüstü/pma-tp.png  --form --field="Plugin dir" --field="Plugin name"  --field="Plugin List:CB" "" "" "$list!$list2")
+#list2=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".repository"`
+dialog=$(yad --title "pma-gui" --form --field="Plugin dir" --field="Plugin name" --button="Plugin List:0")
+
+
+if [ $? -eq 0 ]
+then
+  curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".bruh" | zenity --text-info
+else
+echo ""
+fi
+
 
 dir=$(echo $dialog | awk 'BEGIN {FS="|" } { print $1 }')
 name=$(echo $dialog | awk 'BEGIN {FS="|" } { print $2 }')
