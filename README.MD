@@ -23,9 +23,9 @@ Options:
 
 # What are the advantages of pma?
 Well there are couple of advantages
-1- Fast - Its much faster than getting plugins manually
-2- Simple - Even a baby can understand it 
-3- Customizable - Since its just a shell script, everyone can customize it without much knowledge!
+1. Fast - Its much faster than getting plugins manually
+2. Simple - Even a baby can understand it 
+3. Customizable - Since its just a shell script, everyone can customize it without much knowledge!
 
 # How can i install themes with this?
 For now you **cant**
