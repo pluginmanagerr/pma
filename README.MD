@@ -6,7 +6,7 @@
 # PMA
 Plugin MAnager for Vizality/Powercord
 # WARNING
-Plugin MAnager-GUI is not ready for use yet and might cause problems.
+Plugin MAnager-GUI is really slow, i recommend the CLI instead.
 # What is this?
 This is a Plugin manager (like a package manager, but for plugins) for linux systems that is compatible with Powercord and Vizality.
 
