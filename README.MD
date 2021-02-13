@@ -1,8 +1,10 @@
 <p align="center">
 <img src="./assets/pma.png">
 </p>
-# Plugin MAnager
-PMA is a Plugin Manager for Vizality and Powercord.
+
+
+# PMA
+Plugin MAnager for Vizality/Powercord
 
 # What is this?
 This is a Plugin manager (like a package manager) for linux systems that is compatible with Powercord and Vizality.
