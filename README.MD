@@ -7,7 +7,7 @@
 Plugin MAnager for Vizality/Powercord
 
 # What is this?
-This is a Plugin manager (like a package manager) for linux systems that is compatible with Powercord and Vizality.
+This is a Plugin manager (like a package manager, but for plugins) for linux systems that is compatible with Powercord and Vizality.
 
 # How do i use this?
 1. Clone the repo
