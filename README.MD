@@ -18,7 +18,7 @@ This is a Plugin manager (like a package manager, but for plugins and themes) fo
 # What are the commands?
 you can check the available commands using the `pma -h` command
 
-#I ran it, nothing happened.Why?
+# I ran it, nothing happened.Why?
 You need to run `pma -h` to see the commands and use it
 
 # What are the advantages of pma?
