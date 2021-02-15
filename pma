@@ -7,7 +7,7 @@
 #   \ \__\    \ \__\    \ \__\ \__\ \__\
 #    \|__|     \|__|     \|__|\|__|\|__|
 # Plugin MAnager
-# v1.6
+# v1.7
 # LICENSED UNDER MIT
 
 DIR="/the/path/of/plugins/folder"
@@ -47,6 +47,7 @@ _print_help(){
 Usage:  pma [OPTIONS]
 Options:
     -i  --install     Install powercord
+    -I  --info        Info of a plugin
     -l  --list        List of plugins
     -h  --help        Show help
     -v  --version     Show version
@@ -82,7 +83,7 @@ while [[ $# -gt 0 ]]; do
   \ \  \___|\ \  \    \ \  \ \  \ \  \ 
    \ \__\    \ \__\    \ \__\ \__\ \__\
     \|__|     \|__|     \|__|\|__|\|__|'              
-            echo "v1.6"
+            echo "v1.7"
             echo "pma is open source, you can check the repos here:"
             echo "https://github.com/pluginmanagerr/pma"
             echo "https://github.com/pluginmanagerr/pma-repo"
@@ -94,11 +95,16 @@ while [[ $# -gt 0 ]]; do
             shift
             shift
             ;;
+          --info|-I)
+           curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r --arg QUERY "$QUERY"  ".pma.$QUERY"
+            shift
+            shift
+            ;;
         --help|-h)
             _print_help
             shift
             shift
-            ;;
+            ;
         *)
           echo "Option not found"
           _print_help
