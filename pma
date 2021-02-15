@@ -58,7 +58,7 @@ POSITIONAL=()
 while [[ $# -gt 0 ]]; do
     case $1 in
          --list|-l)
-          curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".bruh"
+          curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".pma"
             shift
             shift
             ;;
