@@ -6,24 +6,20 @@
 # PMA
 Plugin MAnager for Vizality/Powercord
 # What is this?
-This is a Plugin manager (like a package manager, but for plugins) for linux systems that is compatible with Powercord and Vizality.
+This is a Plugin manager (like a package manager, but for plugins and themes) for linux systems that is compatible with Powercord and Vizality.
 
 # How do i use this?
 1. Clone the repo
-2. run chmod +x pma
-3. run bash pma or ./pma (DO NOT RUN AS ROOT)
-4. we recommend running ./pma -d first to configure directory.
+2. edit the THEMEDIR and DIR using your favorite text editor (vim, nano, micro, etc.)
+3. run chmod +x pma
+4. run bash pma or ./pma 
+
 
 # What are the commands?
-```
-Usage:  pma [OPTIONS]
-Options:
-    -i  --install     Install powercord
-    -l  --list        List of plugins
-    -h  --help        Show help
-    -v  --version     Show version
-    -f  --fetch       Fetch a plugin
-```
+you can check the available commands using the `pma -h` command
+
+#I ran it, nothing happened.Why?
+You need to run `pma -h` to see the commands and use it
 
 # What are the advantages of pma?
 Well there are couple of advantages
