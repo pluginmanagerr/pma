@@ -17,7 +17,8 @@ RESULT=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r 
 if ! [ -x "$(command -v jq)" ]; then
     echo "jq is not installed, attempting to install it"
     sudo pacman -S jq
-    sudo apt install jq 
+    sudo apt install jq
+    sudo emerge -a jq --autounmask
     sudo zypper install jq
     echo "If it didnt work install  jq manually"
 fi
@@ -27,6 +28,7 @@ if ! [ -x "$(command -v curl)" ]; then
     sudo pacman -S curl
     sudo apt install curl 
     sudo zypper install curl
+    sudo emerge -a curl --autounmask
     echo "If it didnt work install  curl manually"
 fi
 
@@ -35,6 +37,7 @@ if ! [ -x "$(command -v git)" ]; then
     sudo pacman -S git
     sudo apt install git 
     sudo zypper install git
+    sudo emerge -a git --autounmask
     echo "If it didnt work install  git manually"
 fi
 
