@@ -83,7 +83,7 @@ while [[ $# -gt 0 ]]; do
             shift
             shift
             ;;
-          --info|-I)
+          --info|-i)
            curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r --arg QUERY "$QUERY"  ".pma.$QUERY"
             shift
             shift
