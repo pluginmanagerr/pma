@@ -7,7 +7,7 @@
 #   \ \__\    \ \__\    \ \__\ \__\ \__\
 #    \|__|     \|__|     \|__|\|__|\|__|
 # Plugin MAnager
-# v1.7
+# v2dev
 # LICENSED UNDER MIT
 
 DIR="/the/path/of/plugins/folder"
@@ -71,7 +71,9 @@ while [[ $# -gt 0 ]]; do
   \ \  \___|\ \  \    \ \  \ \  \ \  \ 
    \ \__\    \ \__\    \ \__\ \__\ \__\
     \|__|     \|__|     \|__|\|__|\|__|'              
-            echo "v1.7"
+            echo "v2dev"
+            echo "please dont use this thank u veri mach"
+            echo "WARNING:MAY CONTAIN SHIT CODE"
             echo "pma is open source, you can check the repos here:"
             echo "https://github.com/pluginmanagerr/pma"
             echo "https://github.com/pluginmanagerr/pma-repo"
