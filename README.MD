@@ -35,7 +35,7 @@ Well there are couple of advantages
 For now you **cant**
 
 # Can i use this on Windows?
-You can use this under wsl, if you mount C:\ onto wsl and point the dir to vizality folder through that.
+You can use this under wsl, if you point the dir to vizality folder through /mnt/c/.
 Still not supported though as i dont run a windows machine.
 
 # Im getting jq/git/curl command not found errors, how can i fix them?
