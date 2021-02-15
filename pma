@@ -7,14 +7,14 @@
 #   \ \__\    \ \__\    \ \__\ \__\ \__\
 #    \|__|     \|__|     \|__|\|__|\|__|
 # Plugin MAnager
-# v2dev
+# v2
 # LICENSED UNDER MIT
 
 DIR="/the/path/of/plugins/folder"
 THEMEDIR="/the/path/to/theme/folder"
 QUERY=`echo $2 | sed 's/ /+/'g`
 RESULT=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".pma."$QUERY"_link"`
-THEMERESULT=`curl -s https://raw.githubusercontent.com/pluginmanagerr/pma-repo/theme/vizality.json | jq -r  ".pma."$QUERY"_themelink"`
+THEMERESULT=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".pma."$QUERY"_themelink"`
 if ! [ -x "$(command -v jq)" ]; then
     echo "jq is not installed, attempting to install it"
     sudo pacman -S jq
@@ -48,7 +48,7 @@ _print_help(){
 Usage:  pma [OPTIONS]
 Options:
     -t  --theme       Install a theme
-    -i  --info        Info of a plugin
+    -i  --info        Info of a plugins, themes, and descriptions of those
     -l  --list        List of plugins
     -h  --help        Show help
     -v  --version     Show version
@@ -73,9 +73,7 @@ while [[ $# -gt 0 ]]; do
   \ \  \___|\ \  \    \ \  \ \  \ \  \ 
    \ \__\    \ \__\    \ \__\ \__\ \__\
     \|__|     \|__|     \|__|\|__|\|__|'              
-            echo "v2dev"
-            echo "please dont use this thank u veri mach"
-            echo "WARNING:MAY CONTAIN SHIT CODE"
+            echo "v2"
             echo "pma is open source, you can check the repos here:"
             echo "https://github.com/pluginmanagerr/pma"
             echo "https://github.com/pluginmanagerr/pma-repo"
