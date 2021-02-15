@@ -27,9 +27,6 @@ Well there are couple of advantages
 2. Simple - Even a baby can understand it 
 3. Customizable - Since its just a shell script, everyone can customize it without much knowledge!
 
-# How can i install themes with this?
-For now you **cant**
-
 # Can i use this on Windows?
 You can use this under wsl, if you point the dir to vizality folder through /mnt/c/.
 Still not supported though as i dont run a windows machine.
