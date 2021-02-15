@@ -35,7 +35,8 @@ Well there are couple of advantages
 For now you **cant**
 
 # Can i use this on Windows?
-There should be a way to run this on windows under WSL, but its not supported and not recommended.
+You can use this under wsl, if you mount C:\ onto wsl and point the dir to vizality folder through that.
+Still not supported though as i dont run a windows machine.
 
 # Im getting jq/git/curl command not found errors, how can i fix them?
 You need to install jq/git/curl to use pma.
