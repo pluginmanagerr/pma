@@ -12,8 +12,7 @@ This is a Plugin manager (like a package manager, but for plugins and themes) fo
 ## How do I use this?
 1. Clone the repo
 2. Edit the THEMEDIR and DIR using your favorite text editor (Vi, Nano, etc.)
-3. Run chmod +x pma (To make it executable)
-4. Run bash pma or ./pma
+3. Run `makefile install` as root.
 
 
 ## What are the commands?
