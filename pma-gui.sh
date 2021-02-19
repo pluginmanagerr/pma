@@ -1,4 +1,4 @@
-#!/bin/bash  
+#!/usr/bin/env bash
 # ________  _____ ______   ________                 ________  ___  ___  ___     
 #|\   __  \|\   _ \  _   \|\   __  \               |\   ____\|\  \|\  \|\  \    
 #\ \  \|\  \ \  \\\__\ \  \ \  \|\  \  ____________\ \  \___|\ \  \\\  \ \  \   
@@ -40,7 +40,7 @@ if ! [ -x "$(command -v yad)" ]; then
     sudo pacman -S yad
     sudo apt install yad 
     sudo zypper install yad
-    echo "If it didnt work install  yad manually"
+    echo "If it didnt work install, yad manually"
 fi
 
 
@@ -49,7 +49,7 @@ if ! [ -x "$(command -v zenity)" ]; then
     sudo pacman -S zenity
     sudo apt install zenity
     sudo zypper install zenity
-    echo "If it didnt work install zenity manually"
+    echo "If it didnt work, install  zenity manually"
 fi
 
 
