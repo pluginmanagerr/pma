@@ -34,8 +34,8 @@ Still not supported though as i dont run a windows machine.
 ## Im getting jq/git/curl command not found errors, how can I fix them?
 You need to install jq/git/curl to use pma.
 
-## Why are you using POSIX Shell and not this [random programming language] instead?
-Shell languages are fast and easy to learn/modify, and they make my job easier.
+## Why are you using Bash and not this [random programming language] instead?
+Bash are fast and easy to learn/modify, and they make my job easier.
 
 ## License
 PMA is licensed under MIT license.
