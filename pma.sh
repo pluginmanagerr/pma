@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ________  _____ ______   ________     
 #|\   __  \|\   _ \  _   \|\   __  \    
 #\ \  \|\  \ \  \\\__\ \  \ \  \|\  \   
@@ -21,16 +21,16 @@ if ! [ -x "$(command -v jq)" ]; then
     sudo apt install jq
     sudo emerge -a jq --autounmask
     sudo zypper install jq
-    echo "If it didnt work install  jq manually"
+    echo "If it didnt work, install  jq manually"
 fi
 
 if ! [ -x "$(command -v curl)" ]; then
-    echo "curl is not installed, attempting to install it"
+    echo "cURL is not installed, attempting to install it"
     sudo pacman -S curl
     sudo apt install curl 
     sudo zypper install curl
     sudo emerge -a curl --autounmask
-    echo "If it didnt work install  curl manually"
+    echo "If it didnt work, install  curl manually"
 fi
 
 if ! [ -x "$(command -v git)" ]; then
@@ -39,7 +39,7 @@ if ! [ -x "$(command -v git)" ]; then
     sudo apt install git 
     sudo zypper install git
     sudo emerge -a git --autounmask
-    echo "If it didnt work install  git manually"
+    echo "If it didnt work, install  git manually"
 fi
 
 
