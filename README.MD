@@ -12,7 +12,7 @@ This is a Plugin manager (like a package manager, but for plugins and themes) fo
 ## How do I use this?
 1. Clone the repo
 2. Edit the THEMEDIR and DIR using your favorite text editor (Vi, Nano, etc.)
-3. Run `makefile install` as root.
+3. Run `make install` as root.
 
 
 ## What are the commands?
