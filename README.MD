@@ -35,7 +35,7 @@ Still not supported though as i dont run a windows machine.
 You need to install jq/git/curl to use pma.
 
 ## Why are you using Bash and not this [random programming language] instead?
-Bash are fast and easy to learn/modify, and they make my job easier.
+Bash is fast and easy to learn/modify, and it makes my job easier.
 
 ## License
 PMA is licensed under MIT license.
