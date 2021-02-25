@@ -52,7 +52,7 @@ Options:
     -l  --list        List of plugins
     -h  --help        Show help
     -v  --version     Show version
-    -f  --fetch       Fetch a plugin
+    -p  --plugin      Install a plugin
 EOF
 }
 
@@ -79,7 +79,7 @@ while [[ $# -gt 0 ]]; do
             echo "https://github.com/pluginmanagerr/pma-repo"
             shift
             ;;
-          --fetch|-f)
+          --plugin|-p)
            cd $DIR
            git clone --progress --quiet $RESULT 
             shift
