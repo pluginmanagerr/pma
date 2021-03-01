@@ -53,12 +53,12 @@ if ! [ -x "$(command -v zenity)" ]; then
 fi
 
 
-#Custom repository support, for more information https://github.com/pluginmanagerr/pma-repo
-#list2=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".repository"`
+#Custom repository support, for more information https://kreatea.ml/pluginmanager/pma-repo
+#list2=`curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r  ".repository"`
 dialog=$(yad --title "pma-gui" --form --field="Plugin dir" --field="Plugin name" --button="Plugin List:0" --button="Start:3")
 dir=$(echo "$dialog" | awk 'BEGIN {FS="|" } { print $1 }')
 name=$(echo "$dialog" | awk 'BEGIN {FS="|" } { print $2 }')
-result=$(curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  """.bruh.""$name""_link")
+result=$(curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r  """.bruh.""$name""_link")
 
 #cant understand Unable to find package prompt
 if [ $? -eq 3 ]
@@ -73,7 +73,7 @@ fi
 
 if [ $? == 0 ]
 then
-  curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".bruh" | zenity --text-info
+  curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r  ".bruh" | zenity --text-info
   $dialog
 fi
 
