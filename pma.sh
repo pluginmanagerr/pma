@@ -13,8 +13,8 @@
 DIR="/the/path/of/plugins/folder"
 THEMEDIR="/the/path/to/theme/folder"
 QUERY=`echo $2 | sed 's/ /+/'g`
-RESULT=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".pma."$QUERY"_link"`
-THEMERESULT=`curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".pma."$QUERY"_themelink"`
+RESULT=`curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r  ".pma."$QUERY"_link"`
+THEMERESULT=`curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r  ".pma."$QUERY"_themelink"`
 if ! [ -x "$(command -v jq)" ]; then
     echo "jq is not installed, attempting to install it"
     sudo pacman -S jq
@@ -72,7 +72,7 @@ POSITIONAL=()
 while [[ $# -gt 0 ]]; do
     case $1 in
          --list|-l)
-          curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r  ".pma"
+          curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r  ".pma"
             shift
             shift
             ;;
@@ -87,8 +87,8 @@ while [[ $# -gt 0 ]]; do
     \|__|     \|__|     \|__|\|__|\|__|'              
             echo "v2"
             echo "pma is open source, you can check the repos here:"
-            echo "https://github.com/pluginmanagerr/pma"
-            echo "https://github.com/pluginmanagerr/pma-repo"
+            echo "https://kreatea.ml/pluginmanager/pma"
+            echo "https://kreatea.ml/pluginmanager/pma-repo"
             shift
             ;;
           --plugin|-p)
@@ -104,7 +104,7 @@ while [[ $# -gt 0 ]]; do
             shift
             ;;
           --info|-i)
-           curl -s https://pluginmanagerr.github.io/pma-repo/vizality.json | jq -r --arg QUERY "$QUERY"  ".pma.$QUERY"
+           curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r --arg QUERY "$QUERY"  ".pma.$QUERY"
             shift
             shift
             ;;
