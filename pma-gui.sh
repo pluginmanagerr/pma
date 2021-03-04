@@ -7,7 +7,7 @@
 #   \ \__\    \ \__\    \ \__\ \__\ \__\              \ \_______\ \_______\ \__\
 #    \|__|     \|__|     \|__|\|__|\|__|               \|_______|\|_______|\|__|
 # Plugin MAnager-GUI
-# v0.5
+# v0.5a
 # NOT SUPPORTED ANYMORE
 # LICENSED UNDER MIT
 
@@ -58,7 +58,7 @@ fi
 dialog=$(yad --title "pma-gui" --form --field="Plugin dir" --field="Plugin name" --button="Plugin List:0" --button="Start:3")
 dir=$(echo "$dialog" | awk 'BEGIN {FS="|" } { print $1 }')
 name=$(echo "$dialog" | awk 'BEGIN {FS="|" } { print $2 }')
-result=$(curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r  """.bruh.""$name""_link")
+result=$(curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r  """.pma.""$name""_link")
 
 #cant understand Unable to find package prompt
 if [ $? -eq 3 ]
@@ -73,7 +73,7 @@ fi
 
 if [ $? == 0 ]
 then
-  curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r  ".bruh" | zenity --text-info
+  curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r  ".pma" | zenity --text-info
   $dialog
 fi
 
