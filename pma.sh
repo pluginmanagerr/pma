@@ -13,7 +13,7 @@
 DIR="/the/path/of/plugins/folder"
 THEMEDIR="/the/path/to/theme/folder"
 QUERY=`echo $2 | sed 's/ /+/'g`
-RESULT=`curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r  .["pma."$QUERY"_link"]
+RESULT=`curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r  .["pma."$QUERY"_link"]`
 THEMERESULT=`curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r  .["pma."$QUERY"_themelink"]`
 if ! [ -x "$(command -v jq)" ]; then
     echo "jq is not installed, attempting to install it"
