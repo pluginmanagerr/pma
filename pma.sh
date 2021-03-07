@@ -59,12 +59,13 @@ _print_help(){
   cat << "EOF"
 Usage:  pma [OPTIONS]
 Options:
-    -t  --theme       Install a theme
+    -ft  --ftheme     Fetch a theme
+    -f  --fetch       Fetch a plugin/theme
     -i  --info        Info of a plugins, themes, and descriptions of those
     -l  --list        List of plugins
     -h  --help        Show help
     -v  --version     Show version
-    -p  --plugin      Install a plugin
+    -fp  --fplugin    Fetch a plugin
 EOF
 }
 
@@ -76,6 +77,16 @@ while [[ $# -gt 0 ]]; do
             shift
             shift
             ;;
+        --fetch |-f)
+        echo "Fetching plugin/theme..."
+        cd $DIR
+        git clone --progress --quiet $RESULT 2> /dev/null
+        cd $THEMEDIR
+        git clone --progress --quiet $THEMERESULT 2> /dev/null 
+        echo "Complete!"
+            shift
+            shift
+             ;;
            --version|-v)
            echo '
  ________  _____ ______   ________     
@@ -85,19 +96,19 @@ while [[ $# -gt 0 ]]; do
   \ \  \___|\ \  \    \ \  \ \  \ \  \ 
    \ \__\    \ \__\    \ \__\ \__\ \__\
     \|__|     \|__|     \|__|\|__|\|__|'              
-            echo "v2"
+            echo "v2.1"
             echo "pma is open source, you can check the repos here:"
             echo "https://kreatea.ml/pluginmanager/pma"
             echo "https://kreatea.ml/pluginmanager/pma-repo"
             shift
             ;;
-          --plugin|-p)
+          --fplugin|-fp)
            cd $DIR
            git clone --progress --quiet $RESULT 
             shift
             shift
             ;;
-        --theme|-t)
+        --ftheme|-ft)
            cd $THEMEDIR
            git clone --progress --quiet $THEMERESULT 
             shift
