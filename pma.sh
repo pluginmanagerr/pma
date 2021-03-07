@@ -61,8 +61,7 @@ Usage:  pma [OPTIONS]
 Options:
     -ft  --ftheme     Fetch a theme
     -f  --fetch       Fetch a plugin/theme
-    -i  --info        Info of a plugins, themes, and descriptions of those
-    -l  --list        List of plugins
+    -i  --info        Info of a plugin/theme, also can show all plugins/themes by using "pma -i"
     -h  --help        Show help
     -v  --version     Show version
     -fp  --fplugin    Fetch a plugin
@@ -111,11 +110,6 @@ while [[ $# -gt 0 ]]; do
         --ftheme|-ft)
            cd $THEMEDIR
            git clone --progress --quiet $THEMERESULT 
-            shift
-            shift
-            ;;
-          --info|-i)
-           curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r --arg QUERY "$QUERY"  ".pma.$QUERY"
             shift
             shift
             ;;
