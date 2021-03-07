@@ -95,7 +95,7 @@ while [[ $# -gt 0 ]]; do
   \ \  \___|\ \  \    \ \  \ \  \ \  \ 
    \ \__\    \ \__\    \ \__\ \__\ \__\
     \|__|     \|__|     \|__|\|__|\|__|'              
-            echo "v2.1"
+            echo "v2.2"
             echo "pma is open source, you can check the repos here:"
             echo "https://kreatea.ml/pluginmanager/pma"
             echo "https://kreatea.ml/pluginmanager/pma-repo"
