@@ -14,8 +14,8 @@
 DIR="/the/path/of/plugins/folder"
 THEMEDIR="/the/path/to/theme/folder"
 QUERY=`echo $2 | sed 's/ /+/'g`
-RESULT=$(curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | fx .pma."$QUERY"_link)
-THEMERESULT=$(curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | fx  .pma."$QUERY"_themelink)
+RESULT=$(curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | fx .pma."$QUERY"_link 2> /dev/null)
+THEMERESULT=$(curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | fx  .pma."$QUERY"_themelink 2> /dev/null)
 
 # Check for fx
 if ! [ -x "$(command -v fx)" ]; then
@@ -80,11 +80,11 @@ while [[ $# -gt 0 ]]; do
             shift
             shift
              ;;
-        --info |-i)
-        curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | fx .pma
-        shift
-        shift
-        ;;
+        - -list |-l)
+          curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | fx .pma
+           shift
+           shift
+           ;;
            --version|-v)
            echo '
  ________  _____ ______   ________     
