@@ -16,12 +16,15 @@ THEMEDIR="/the/path/to/theme/folder"
 QUERY=`echo $2 | sed 's/ /+/'g`
 RESULT=$(curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | fx .pma."$QUERY"_link)
 THEMERESULT=$(curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | fx  .pma."$QUERY"_themelink)
+
+# Check for fx
 if ! [ -x "$(command -v fx)" ]; then
     echo "fx is not installed, attempting to install it"
     doas npm i fx --global
     echo "If it didnt work, install fx manually through npm"
 fi
 
+# Check for curl
 if ! [ -x "$(command -v curl)" ]; then
     echo "cURL is not installed, attempting to install it"
     sudo pacman -S curl
@@ -35,6 +38,7 @@ if ! [ -x "$(command -v curl)" ]; then
     echo "If it didnt work, install  curl manually"
 fi
 
+# Check for git
 if ! [ -x "$(command -v git)" ]; then
     echo "git is not installed, attempting to install it"
     sudo pacman -S git
@@ -48,14 +52,15 @@ if ! [ -x "$(command -v git)" ]; then
     echo "If it didnt work, install  git manually"
 fi
 
-
+# Help
 _print_help(){
   cat << "EOF"
 Usage:  pma [OPTIONS]
 Options:
     -ft  --ftheme     Fetch a theme
     -f  --fetch       Fetch a plugin/theme
-    -i  --info        Info of a plugin/theme, also can show all plugins/themes by using "pma -i"
+    -l  --list        List plugins/themes
+    -i  --info        Info of a plugin/theme
     -h  --help        Show help
     -v  --version     Show version
     -fp  --fplugin    Fetch a plugin
@@ -75,6 +80,11 @@ while [[ $# -gt 0 ]]; do
             shift
             shift
              ;;
+        --info |-i)
+        curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | fx .pma
+        shift
+        shift
+        ;;
            --version|-v)
            echo '
  ________  _____ ______   ________     
@@ -84,7 +94,7 @@ while [[ $# -gt 0 ]]; do
   \ \  \___|\ \  \    \ \  \ \  \ \  \ 
    \ \__\    \ \__\    \ \__\ \__\ \__\
     \|__|     \|__|     \|__|\|__|\|__|'              
-            echo "v2.2"
+            echo "v2.3"
             echo "pma is open source, you can check the repos here:"
             echo "https://kreatea.ml/pluginmanager/pma"
             echo "https://kreatea.ml/pluginmanager/pma-repo"
