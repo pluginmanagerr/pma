@@ -31,8 +31,8 @@ Well, there are couple of advantages.
 You can use this under wsl, if you point the dir to vizality folder through /mnt/c/.
 Still not supported though as i dont run a windows machine.
 
-## Im getting jq/git/curl command not found errors, how can I fix them?
-You need to install jq/git/curl to use pma.
+## Im getting fx/git/curl command not found errors, how can I fix them?
+You need to install fx/git/curl to use pma.
 
 ## Why are you using Bash and not this [random programming language] instead?
 Bash is fast and easy to learn/modify, and it makes my job easier.
