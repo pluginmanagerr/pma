@@ -7,25 +7,19 @@
 #   \ \__\    \ \__\    \ \__\ \__\ \__\
 #    \|__|     \|__|     \|__|\|__|\|__|
 # Plugin MAnager
+
 # v2
 # LICENSED UNDER MIT
 
 DIR="/the/path/of/plugins/folder"
 THEMEDIR="/the/path/to/theme/folder"
 QUERY=`echo $2 | sed 's/ /+/'g`
-RESULT=$(curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r  ".pma."$QUERY"_link")
-THEMERESULT=$(curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | jq -r  ".pma."$QUERY"_themelink")
-if ! [ -x "$(command -v jq)" ]; then
-    echo "jq is not installed, attempting to install it"
-    sudo pacman -S jq
-    doas pacman -S jq
-    sudo apt install jq
-    doas apt install jq
-    sudo emerge -a jq --autounmask
-    doas emerge -a jq --autounmask
-    sudo zypper install jq
-    doas zypper install jq
-    echo "If it didnt work, install  jq manually"
+RESULT=$(curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | fx .pma."$QUERY"_link)
+THEMERESULT=$(curl -s https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json | fx  .pma."$QUERY"_themelink)
+if ! [ -x "$(command -v fx)" ]; then
+    echo "fx is not installed, attempting to install it"
+    doas npm i fx --global
+    echo "If it didnt work, install fx manually through npm"
 fi
 
 if ! [ -x "$(command -v curl)" ]; then
