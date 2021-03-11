@@ -7,7 +7,6 @@
 #   \ \__\    \ \__\    \ \__\ \__\ \__\
 #    \|__|     \|__|     \|__|\|__|\|__|
 # Plugin MAnager
-
 # v2
 # LICENSED UNDER MIT
 
@@ -23,6 +22,13 @@ if ! [ -x "$(command -v fx)" ]; then
     doas npm i fx --global
     echo "If it didnt work, install fx manually through npm"
 fi
+
+# Check version (SOON)
+#if ! [ -x "$(command -v fx)" ]; then
+#    echo "fx is not installed, attempting to install it"
+#    doas npm i fx --global
+#    echo "If it didnt work, install fx manually through npm"
+#fi
 
 # Check for curl
 if ! [ -x "$(command -v curl)" ]; then
