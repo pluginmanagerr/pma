@@ -16,13 +16,13 @@ pluginpath = r"C:\Users\Kreato\Desktop" # Plugin Path (change)
 themepath = r"C:\Users\Kreato\Desktop" # Theme Path (change)
 parser = ArgumentParser(prog='pma') # ArgumentParser
 parser.add_argument('addon', help="Plugin/theme name.") # Add argument
-parser.add_argument('-i', help="Information about a plugin/theme.", action='store_true') # Add argument
+parser.add_argument('-i', '--info', help="Information about a plugin/theme.", action='store_true') # Add argument
 parser.add_argument('-v', '--version', action='version', version='%(prog)s 3.1 RECODE', help="Show program's version number and exit.")
 args = parser.parse_args() # Args
 content = requests.get("https://raw.githubusercontent.com/kreat0/pma-repo/main/vizality.json")  # get the json
 clone = "git clone " # specify git clone
 json = json.loads(content.content) # get json
-if args.i == True: # info command
+if args.info == True: # info command
     result = json[args.addon] # get json data
     content.close # close
     print(result) # show result
