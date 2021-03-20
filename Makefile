@@ -1,4 +1,4 @@
-SCRIPT= pma.sh
+SCRIPT= pma.py
 EXEC= pma
 
 # paths
