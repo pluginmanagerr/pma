@@ -32,7 +32,7 @@ else:
         outfile.write(json_object)
     print("Configuration complete. Enjoy using Plugin MAnager!")
     sys.exit()
-f = open(home + '/.config/pma/config.json',)
+f = open(home + '/pmaconfig.json',)
 data = json.load(f)
 pluginpath =  data['pluginpath'] # Plugin Path (change)
 themepath = data['themepath'] # Theme Path (change)
