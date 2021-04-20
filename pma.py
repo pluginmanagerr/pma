@@ -31,7 +31,7 @@ else:
     with open(home + "/pmaconfig.json", "w") as outfile:
         outfile.write(json_object)
     print("Configuration complete. Enjoy using Plugin MAnager!")
-    print("Note: if you want to change your plugin/theme path, look at " home + "/pmaconfig.json")
+    print("Note: if you want to change your plugin/theme path, look at " + home + "/pmaconfig.json")
     sys.exit()
 f = open(home + '/pmaconfig.json',)
 data = json.load(f)
