@@ -11,8 +11,7 @@ This is a Plugin manager (like a package manager, but for plugins and themes) fo
 
 ## How do I use this?
 1. Clone the repo
-2. Edit the pluginpath and themepath using your favorite text editor (Vi, Nano, etc.)
-3. Run `make install` as root.
+2. Run `make install` as root.
 
 ## Compile for windows
 You can use Pyinstaller to compile it. Run `pyinstaller pma.py --onefile` then add the exe to your PATH.
