@@ -11,15 +11,37 @@
 # Licensed under MIT, read https://kreatea.ml/pluginmanager/pma/src/branch/main/LICENSE for details.
 # Made by Kreato
 import requests, json, os, sys # import our shit
+from pathlib import Path
+home = str(Path.home())
 from argparse import ArgumentParser # import our shit
-pluginpath = r"C:\Users\Kreato\Desktop" # Plugin Path (change)
-themepath = r"C:\Users\Kreato\Desktop" # Theme Path (change)
+if os.path.isfile(home + '/pmaconfig.json'):
+    pass
+else:
+    print("Welcome to Plugin MAnager.")
+    print("Please enter your plugin path for Vizality or Powercord.")
+    pluginpath = input()
+    print("Please enter your plugin theme for Vizality or Powercord.")
+    themepath = input()
+    dictionary ={
+        "pluginpath" : pluginpath,
+        "themepath" : themepath
+    }
+    json_object = json.dumps(dictionary, indent = 4)
+    
+    with open(home + "/pmaconfig.json", "w") as outfile:
+        outfile.write(json_object)
+    print("Configuration complete. Enjoy using Plugin MAnager!")
+    sys.exit()
+f = open(home + '/.config/pma/config.json',)
+data = json.load(f)
+pluginpath =  data['pluginpath'] # Plugin Path (change)
+themepath = data['themepath'] # Theme Path (change)
 parser = ArgumentParser(prog='pma') # ArgumentParser
 parser.add_argument('addon', help="Plugin/theme name.") # Add argument
 parser.add_argument('-i', '--info', help="Information about a plugin/theme.", action='store_true') # Add argument
 parser.add_argument('-v', '--version', action='version', version='%(prog)s 3.1 RECODE', help="Show program's version number and exit.")
 args = parser.parse_args() # Args
-content = requests.get("https://raw.githubusercontent.com/kreat0/pma-repo/main/vizality.json")  # get the json
+content = requests.get("https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json")  # get the json
 clone = "git clone " # specify git clone
 json = json.loads(content.content) # get json
 if args.info == True: # info command
