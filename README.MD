@@ -4,10 +4,10 @@ Plugin MAnager for Vizality/Powercord.
 ## What is PMA?
 PMA a Plugin manager (like a package manager, but for plugins and themes) for \*nix/windows systems that is compatible with Powercord and Vizality.
 
-## How do I use this?
+## Installation
 1. Clone the repo
 2. Run `make install` as root.
-
+**Note: Arch Linux users can use the [AUR](https://aur.archlinux.org/packages/pma-git/) package.**
 ## Compile for windows
 You can use Pyinstaller to compile it. Run `pyinstaller pma.py --onefile` then add the exe to your PATH.
 
