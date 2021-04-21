@@ -20,9 +20,9 @@ jobs:
     - name: build with pyinstaller
       run: |
         pyinstaller --distpath . --onefile pma.py
-        
     - name: Upload assets for tag
       uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
       with:
           files: |
             ./pma.exe
