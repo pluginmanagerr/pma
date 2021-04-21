@@ -1,6 +1,6 @@
 # Windows releases of pma
 name: PyInstaller
-on: [release]
+on: [push]
 
 jobs:
   build:
