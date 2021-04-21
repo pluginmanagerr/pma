@@ -20,7 +20,7 @@ else:
     print("Welcome to Plugin MAnager.")
     print("Please enter your plugin path for Vizality or Powercord.")
     pluginpath = input()
-    print("Please enter your plugin theme for Vizality or Powercord.")
+    print("Please enter your theme path for Vizality or Powercord.")
     themepath = input()
     dictionary ={
         "pluginpath" : pluginpath,
