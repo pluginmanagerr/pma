@@ -7,7 +7,9 @@ PMA a Plugin manager (like a package manager, but for plugins and themes) for \*
 ## Installation
 1. Clone the repo
 2. Run `make install` as root.
+
 **Note: Arch Linux users can use the [AUR](https://aur.archlinux.org/packages/pma-git/) package.**
+
 ## Compile for windows
 You can use Pyinstaller to compile it. Run `pyinstaller pma.py --onefile` then add the exe to your PATH.
 
@@ -19,9 +21,6 @@ You can check the available commands using the `pma -h` command.
 
 ## Im getting requests not found error(s), how can I fix them?
 You need to install request through pip to use pma.
-
-## What are these Legacy versions for?
-Those are kept as "ol' times sake" and are not supported.
 
 ## License
 PMA is licensed under GPLV3 license.
