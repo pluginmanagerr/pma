@@ -8,7 +8,7 @@
 #    \|__|     \|__|     \|__|\|__|\|__|
 # Plugin MAnager
 # v3 - RECODE
-# Licensed under MIT, read https://kreatea.ml/pluginmanager/pma/src/branch/main/LICENSE for details.
+# Licensed under GPLV3, read https://kreatea.ml/pluginmanager/pma/src/branch/main/LICENSE.md for details.
 # Made by Kreato
 import requests, json, os, sys # import our shit
 from pathlib import Path
