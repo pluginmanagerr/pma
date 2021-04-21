@@ -1,12 +1,10 @@
+# Windows releases of pma
 name: PyInstaller
-
 on: [push]
 
 jobs:
   build:
-
     runs-on: windows-latest
-
     steps:
     - uses: actions/checkout@v1
     - name: Set up Python 3.9
