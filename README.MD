@@ -10,8 +10,11 @@ PMA a Plugin manager (like a package manager, but for plugins and themes) for \*
 
 **Note: Arch Linux users can use the [AUR](https://aur.archlinux.org/packages/pma-git/) package.**
 
-## Compile for windows
-You can use Pyinstaller to compile it. Run `pyinstaller pma.py --onefile` then add the exe to your PATH.
+## Installation in Windows
+* Go to [Releases](https://github.com/pluginmanagerr/pma/releases) page to get the latest release. 
+* Download latest release
+* Open CMD (Or powershell)
+* Run the exe.
 
 ## Usage
 `pma addon` example: `pma stc` install shutthecord.
