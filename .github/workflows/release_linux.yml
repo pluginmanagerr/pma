@@ -1,0 +1,31 @@
+# Windows releases of pma
+name: PyInstaller
+on:
+  push:
+    tags:
+      - "*" # triggers only if push new tag version, like `0.8.4` or else
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests pyinstaller
+    - name: build with pyinstaller
+      run: |
+        pyinstaller --distpath . --onefile pma.py
+    - name: Upload assets for tag
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+          files: |
+            ./pma.exe
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
