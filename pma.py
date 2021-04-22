@@ -33,6 +33,12 @@ else:
     print("Note: if you want to change your plugin/theme path, look at " + home + "/pmaconfig.json")
     sys.exit()
 data = json.load(open(f"{home}/pmaconfig.json"))
+if os.path.isfile(home + '/pmacache.json'):
+    pass
+else:
+    content = requests.get("https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json")  # get the json
+    with open(home + "/pmacache.json", "wb") as outfile:
+        outfile.write(content.content)
 pluginpath =  data['pluginpath'] # Plugin Path (change)
 themepath = data['themepath'] # Theme Path (change)
 args = sys.argv[1:]
@@ -46,7 +52,9 @@ if "-h" in args or "--help" in args or len(args) == 0:
 ║ -h  ║ --help            ║ Display help.                                 ║ pma -h           ║
 ╠═════╬═══════════════════╬═══════════════════════════════════════════════╬══════════════════╣
 ║ -S  ║ --sync            ║  Install addons.                              ║ pma -S addon     ║
-╚═════╩═══════════════════╩═══════════════════════════════════════════════╩══════════════════╝ """)
+╠═════╬═══════════════════╬═══════════════════════════════════════════════╬══════════════════╣
+║ -y  ║ --refresh         ║  Refresh cached repository.                   ║ pma -y           ║
+╚═════╩═══════════════════╩═══════════════════════════════════════════════╩══════════════════╝""")
     exit()
 if "-V" in args or "--version" in args:
     print(r"""
@@ -58,11 +66,10 @@ if "-V" in args or "--version" in args:
      I\ \__\    \ \__\    \ \__\ \__\ \__\
       N\|__|     \|__|     \|__|\|__|\|__|
                   M  A      N  A  G  E   R 
-     pma, version 3.4a""")
+     pma, version 3.5""")
     exit()
-content   = requests.get("https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json")  # get the json
 clone     = "git clone " # specify git clone
-json_file = json.loads(content.content) # get json
+json_file = json.load(open(f"{home}/pmacache.json")) # get json
 if "-i" in args or "--info" in args: # info command
     try:
         result      = json_file[args[1]] # get json data
@@ -75,17 +82,24 @@ if "-i" in args or "--info" in args: # info command
         sys.exit() # exit
     except Exception:
         print("ERROR: Not enough arguments")
+if "-y" in args or "--refresh" in args:
+    try:
+        content = requests.get("https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json")  # get the json
+        with open(home + "/pmacache.json", "wb") as outfile:
+            outfile.write(content.content)
+            print("Refreshed repository.")
+    except Exception:
+        print("ERROR: refreshing repository failed.")
+        
 if "-S" in args or "--sync" in args:
     try: # Plugin
         result = json_file[args[1] + "_link"] # get json data 
-        content.close() # close
         os.chdir(pluginpath) # Specifying the path where the cloned project needs to be copied
         os.system(clone + result) # Cloning (plugin)
     except Exception:
         pass
     try: # Theme
         result = json_file[args[1] + "_themelink"] # get json data
-        content.close() # close
         os.chdir(themepath) # Specifying the path where the cloned project needs to be copied
         os.system(clone + resultheme) # Cloning (theme)
     except Exception:
