@@ -66,7 +66,7 @@ if "-V" in args or "--version" in args:
      I\ \__\    \ \__\    \ \__\ \__\ \__\
       N\|__|     \|__|     \|__|\|__|\|__|
                   M  A      N  A  G  E   R 
-     pma, version 3.5""")
+     pma, version 3.5a""")
     exit()
 clone     = "git clone " # specify git clone
 json_file = json.load(open(f"{home}/pmacache.json")) # get json
@@ -74,7 +74,6 @@ if "-i" in args or "--info" in args: # info command
     try:
         result      = json_file[args[1]] # get json data
         result_link = json_file[args[1] + "_link"] # get json data
-        content.close # close
         print(f"""
         Description:    {result}
         Link:           {result_link}                                      
