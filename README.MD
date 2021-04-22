@@ -8,7 +8,7 @@ PMA a Plugin manager (like a package manager, but for plugins and themes) for \*
 1. Clone the repo
 2. Run `make install` as root.
 * Or you can use the binary available [here](https://github.com/pluginmanagerr/pma/releases)
-**Note: Arch Linux users can use the [AUR](https://aur.archlinux.org/packages/pma-git/) package.**
+* Note: Arch Linux users can use the [AUR](https://aur.archlinux.org/packages/pma-git/) package.
 
 ## Installation in Windows
 * Go to [Releases](https://github.com/pluginmanagerr/pma/releases) page to get the latest release. 
