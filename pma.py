@@ -13,7 +13,6 @@
 import requests, json, os, sys # import our shit
 from pathlib import Path
 home = str(Path.home())
-from argparse import ArgumentParser # import our shit
 if os.path.isfile(home + '/pmaconfig.json'):
     pass
 else:
@@ -33,32 +32,54 @@ else:
     print("Configuration complete. Enjoy using Plugin MAnager!")
     print("Note: if you want to change your plugin/theme path, look at " + home + "/pmaconfig.json")
     sys.exit()
-f = open(home + '/pmaconfig.json',)
-data = json.load(f)
+data = json.load(open(f"{home}/pmaconfig.json"))
 pluginpath =  data['pluginpath'] # Plugin Path (change)
 themepath = data['themepath'] # Theme Path (change)
-parser = ArgumentParser(prog='pma') # ArgumentParser
-parser.add_argument('addon', help="Plugin/theme name.") # Add argument
-parser.add_argument('-i', '--info', help="Information about a plugin/theme.", action='store_true') # Add argument
-parser.add_argument('-v', '--version', action='version', version='%(prog)s 3.1 RECODE', help="Show program's version number and exit.")
-args = parser.parse_args() # Args
+args = sys.argv[1:]
+if "-h" in args or "--help" in args:
+    print("""pma - a package manager, but for plugins and themes.
+╔═════╦═══════════════════╦════════════════════════════════════════════════════╗
+║ -i  ║ --info            ║ Information about a plugin/theme.                  ║
+╠═════╬═══════════════════╬════════════════════════════════════════════════════╣
+║ -v  ║ --version         ║ Display version.                                   ║
+╚═════╩═══════════════════╩════════════════════════════════════════════════════╝ """)
+    exit()
+if "-v" in args or "--version" in args:
+    print(r"""
+   ________  _____ ______   ________     
+ P| \   __  \|\   _ \  _   \|\   __  \    
+  L\ \  \|\  \ \  \\\__\ \  \ \  \|\  \   
+   U\ \   ____\ \  \\|__| \  \ \   __  \  
+    G\ \  \___|\ \  \    \ \  \ \  \ \  \ 
+     I\ \__\    \ \__\    \ \__\ \__\ \__\
+      N\|__|     \|__|     \|__|\|__|\|__|
+                  M  A      N  A  G  E   R 
+     pma, version 3.4""")
+    exit()
 content = requests.get("https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json")  # get the json
 clone = "git clone " # specify git clone
 json = json.loads(content.content) # get json
-if args.info == True: # info command
-    result = json[args.addon] # get json data
-    content.close # close
-    print(result) # show result
-    sys.exit() # exit
+if "-i" in args or "--info" in args: # info command
+    try:
+        result      = json[args[1]] # get json data
+        result_link = json[args[1] + "_link"] # get json data
+        content.close # close
+        print(f"""
+        Description:    {result}
+        Link:           {result_link}                                      
+        """) # show result
+        sys.exit() # exit
+    except Exception:
+        print("ERROR: Not enough arguments")
 try: # Plugin
-    result = json[args.addon + "_link"] # get json data
+    result = json[args[1] + "_link"] # get json data 
     content.close() # close
     os.chdir(pluginpath) # Specifying the path where the cloned project needs to be copied
     os.system(clone + result) # Cloning (plugin)
 except Exception:
     pass
 try: # Theme
-    resultheme = json[args.addon + "_themelink"] # get json data (for themes)
+    result = json[args[1] + "_themelink"] # get json data
     content.close() # close
     os.chdir(themepath) # Specifying the path where the cloned project needs to be copied
     os.system(clone + resultheme) # Cloning (theme)
