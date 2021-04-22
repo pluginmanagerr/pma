@@ -10,7 +10,7 @@
 # v3 - RECODE
 # Licensed under GPLV3, read https://kreatea.ml/pluginmanager/pma/src/branch/main/LICENSE.md for details.
 # Made by Kreato
-import requests, json, os, sys # import our shit
+import requests, subprocess, json, os, sys # import our shit
 from pathlib import Path
 home = str(Path.home())
 if os.path.isfile(home + '/pmaconfig.json'):
@@ -36,15 +36,19 @@ data = json.load(open(f"{home}/pmaconfig.json"))
 pluginpath =  data['pluginpath'] # Plugin Path (change)
 themepath = data['themepath'] # Theme Path (change)
 args = sys.argv[1:]
-if "-h" in args or "--help" in args:
+if "-h" in args or "--help" in args or len(args) == 0:
     print("""pma - a package manager, but for plugins and themes.
-╔═════╦═══════════════════╦════════════════════════════════════════════════════╗
-║ -i  ║ --info            ║ Information about a plugin/theme.                  ║
-╠═════╬═══════════════════╬════════════════════════════════════════════════════╣
-║ -v  ║ --version         ║ Display version.                                   ║
-╚═════╩═══════════════════╩════════════════════════════════════════════════════╝ """)
+╔═════╦═══════════════════╦═══════════════════════════════════════════════╦══════════════════╗
+║ -i  ║ --info            ║ Information about a plugin/theme.             ║ pma -i addon     ║
+╠═════╬═══════════════════╬═══════════════════════════════════════════════╬══════════════════╣
+║ -V  ║ --version         ║ Display version.                              ║ pma -v           ║
+╠═════╬═══════════════════╬═══════════════════════════════════════════════╬══════════════════╣
+║ -h  ║ --help            ║ Display help.                                 ║ pma -h           ║
+╠═════╬═══════════════════╬═══════════════════════════════════════════════╬══════════════════╣
+║ -S  ║ --sync            ║  Install addons.                              ║ pma -S addon     ║
+╚═════╩═══════════════════╩═══════════════════════════════════════════════╩══════════════════╝ """)
     exit()
-if "-v" in args or "--version" in args:
+if "-V" in args or "--version" in args:
     print(r"""
    ________  _____ ______   ________     
  P| \   __  \|\   _ \  _   \|\   __  \    
@@ -54,15 +58,15 @@ if "-v" in args or "--version" in args:
      I\ \__\    \ \__\    \ \__\ \__\ \__\
       N\|__|     \|__|     \|__|\|__|\|__|
                   M  A      N  A  G  E   R 
-     pma, version 3.4""")
+     pma, version 3.4a""")
     exit()
-content = requests.get("https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json")  # get the json
-clone = "git clone " # specify git clone
-json = json.loads(content.content) # get json
+content   = requests.get("https://kreatea.ml/pluginmanager/pma-repo/raw/branch/main/vizality.json")  # get the json
+clone     = "git clone " # specify git clone
+json_file = json.loads(content.content) # get json
 if "-i" in args or "--info" in args: # info command
     try:
-        result      = json[args[1]] # get json data
-        result_link = json[args[1] + "_link"] # get json data
+        result      = json_file[args[1]] # get json data
+        result_link = json_file[args[1] + "_link"] # get json data
         content.close # close
         print(f"""
         Description:    {result}
@@ -71,17 +75,18 @@ if "-i" in args or "--info" in args: # info command
         sys.exit() # exit
     except Exception:
         print("ERROR: Not enough arguments")
-try: # Plugin
-    result = json[args[1] + "_link"] # get json data 
-    content.close() # close
-    os.chdir(pluginpath) # Specifying the path where the cloned project needs to be copied
-    os.system(clone + result) # Cloning (plugin)
-except Exception:
-    pass
-try: # Theme
-    result = json[args[1] + "_themelink"] # get json data
-    content.close() # close
-    os.chdir(themepath) # Specifying the path where the cloned project needs to be copied
-    os.system(clone + resultheme) # Cloning (theme)
-except Exception:
-    pass
+if "-S" in args or "--sync" in args:
+    try: # Plugin
+        result = json_file[args[1] + "_link"] # get json data 
+        content.close() # close
+        os.chdir(pluginpath) # Specifying the path where the cloned project needs to be copied
+        os.system(clone + result) # Cloning (plugin)
+    except Exception:
+        pass
+    try: # Theme
+        result = json_file[args[1] + "_themelink"] # get json data
+        content.close() # close
+        os.chdir(themepath) # Specifying the path where the cloned project needs to be copied
+        os.system(clone + resultheme) # Cloning (theme)
+    except Exception:
+        pass
