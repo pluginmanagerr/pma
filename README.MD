@@ -4,10 +4,10 @@ Plugin MAnager for Vizality/Powercord.
 ## What is PMA?
 PMA a Plugin manager (like a package manager, but for plugins and themes) for \*nix/windows systems that is compatible with Powercord and Vizality.
 
-## Installation
+## Installation on Linux
 1. Clone the repo
 2. Run `make install` as root.
-
+* Or you can use the binary available [here](https://github.com/pluginmanagerr/pma/releases)
 **Note: Arch Linux users can use the [AUR](https://aur.archlinux.org/packages/pma-git/) package.**
 
 ## Installation in Windows
@@ -17,7 +17,7 @@ PMA a Plugin manager (like a package manager, but for plugins and themes) for \*
 * Run the exe.
 
 ## Usage
-`pma addon` example: `pma stc` install shutthecord.
+`pma -S addon` example: `pma -S stc` would install shutthecord.
 
 ## What are the commands?
 You can check the available commands using the `pma -h` command.
