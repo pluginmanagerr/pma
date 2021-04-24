@@ -66,7 +66,7 @@ if "-V" in args or "--version" in args:
      I\ \__\    \ \__\    \ \__\ \__\ \__\
       N\|__|     \|__|     \|__|\|__|\|__|
                   M  A      N  A  G  E   R 
-     pma, version 3.5a""")
+     pma, version 3.5b""")
     exit()
 clone     = "git clone " # specify git clone
 json_file = json.load(open(f"{home}/pmacache.json")) # get json
@@ -100,6 +100,6 @@ if "-S" in args or "--sync" in args:
     try: # Theme
         result = json_file[args[1] + "_themelink"] # get json data
         os.chdir(themepath) # Specifying the path where the cloned project needs to be copied
-        os.system(clone + resultheme) # Cloning (theme)
+        os.system(clone + resul) # Cloning (theme)
     except Exception:
         pass
