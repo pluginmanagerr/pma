@@ -1,3 +1,5 @@
+![Pma.](https://kreatea.ml/pluginmanager/pma/raw/branch/main/assets/unknown2.png)
+
 # PMA
 Plugin MAnager for Vizality/Powercord.
 
